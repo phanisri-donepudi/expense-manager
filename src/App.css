@@ -1,0 +1,291 @@
+.app {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 32px 20px 48px;
+}
+
+.app__header {
+  margin-bottom: 24px;
+}
+
+.app__title {
+  color: var(--text-strong);
+  font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.app__subtitle {
+  margin-top: 4px;
+  font-size: 0.9rem;
+}
+
+.app__main {
+  display: grid;
+  gap: 20px;
+  align-items: start;
+}
+
+.app__sidebar,
+.app__content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+.summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.summary__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.summary__amount {
+  margin-top: 2px;
+  font-size: clamp(1.8rem, 1.3rem + 2vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.summary__hint {
+  margin-top: 2px;
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
+
+.summary__stats {
+  display: flex;
+  gap: 24px;
+}
+
+.summary__stat dt {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.summary__stat dd {
+  margin-top: 2px;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.form__actions .btn--primary {
+  flex: 1 1 140px;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.filters__footer {
+  display: flex;
+  flex: 1 0 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.filters__count {
+  color: var(--text);
+  font-size: 0.85rem;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.expense {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: var(--radius-md);
+  transition: background 0.15s ease;
+}
+
+.expense:hover {
+  background: var(--surface-alt);
+}
+
+.expense__badge {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  color: #ffffff;
+  background: var(--accent);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.expense__badge--transport {
+  background: #2563eb;
+}
+.expense__badge--housing {
+  background: #7c3aed;
+}
+.expense__badge--utilities {
+  background: #0891b2;
+}
+.expense__badge--health {
+  background: #059669;
+}
+.expense__badge--shopping {
+  background: #db2777;
+}
+.expense__badge--entertainment {
+  background: #ea580c;
+}
+.expense__badge--education {
+  background: #4f46e5;
+}
+.expense__badge--other {
+  background: #64748b;
+}
+
+.expense__info {
+  min-width: 0;
+}
+
+.expense__title {
+  color: var(--text-strong);
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.expense__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  font-size: 0.8rem;
+}
+
+.expense__amount {
+  color: var(--text-strong);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.expense__actions {
+  display: flex;
+  gap: 4px;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 48px 20px;
+  text-align: center;
+}
+
+.empty__title {
+  color: var(--text-strong);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.empty__text {
+  max-width: 38ch;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+}
+
+@media (min-width: 900px) {
+  .app {
+    padding: 40px 24px 64px;
+  }
+
+  .app__main {
+    grid-template-columns: minmax(300px, 360px) 1fr;
+  }
+
+  .app__sidebar {
+    position: sticky;
+    top: 24px;
+  }
+}
+
+@media (max-width: 560px) {
+  .app {
+    padding: 24px 14px 40px;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  .summary {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .expense {
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      'badge info'
+      'amount actions';
+    row-gap: 10px;
+  }
+
+  .expense__badge {
+    grid-area: badge;
+  }
+
+  .expense__info {
+    grid-area: info;
+  }
+
+  .expense__amount {
+    grid-area: amount;
+    align-self: center;
+  }
+
+  .expense__actions {
+    grid-area: actions;
+    justify-content: flex-end;
+  }
+}
